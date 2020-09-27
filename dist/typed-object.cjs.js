@@ -25,12 +25,7 @@ function validateType(type) {
   }
 }
 
-function checkTypes(
-  objectTypeDescriptor,
-  newValue,
-  allowUndefined,
-  array = false
-) {
+function checkTypes(objectTypeDescriptor, newValue, allowUndefined, array = false) {
   const newValueType = getType(newValue);
   const cleanType = clearType(objectTypeDescriptor.type);
   if (newValueType === 'undefined' && allowUndefined) return;
