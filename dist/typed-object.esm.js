@@ -206,9 +206,4 @@ function createInterface(interfaceDescriptor, interfaceName) {
   return Object.freeze(newInterface);
 }
 
-var main = {
-  createInterface,
-  createWithInterface
-};
-
-export default main;
+export { createInterface, createWithInterface };

@@ -1,5 +1,7 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 class TypeValidationError extends Error {
   constructor(message) {
     const newMessage = `[TypeValidationError] ${message}`;
@@ -208,9 +210,5 @@ function createInterface(interfaceDescriptor, interfaceName) {
   return Object.freeze(newInterface);
 }
 
-var main = {
-  createInterface,
-  createWithInterface
-};
-
-module.exports = main;
+exports.createInterface = createInterface;
+exports.createWithInterface = createWithInterface;
