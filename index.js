@@ -16,5 +16,7 @@ const person = createWithInterface(PersonInterface, {
     numbers: [1,2,3]
 })
 
+person.numbers = undefined
+
 
 console.log(JSON.stringify(person, null, 2))
