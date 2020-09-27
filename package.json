@@ -10,7 +10,8 @@
   },
   "scripts": {
     "test": "jest --coverage",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
   },
   "repository": {
     "type": "git",

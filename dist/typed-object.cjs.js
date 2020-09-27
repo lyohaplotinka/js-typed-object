@@ -29,11 +29,14 @@ function validateType(type) {
     }
 }
 
-function checkTypes(objectTypeDescriptor, newValue, allowUndefined) {
+function checkTypes(objectTypeDescriptor, newValue, allowUndefined, array = false) {
     const newValueType = getType(newValue);
+    const cleanType = clearType(objectTypeDescriptor.type);
     if (newValueType === 'undefined' && allowUndefined) return
-    if (clearType(objectTypeDescriptor.type) !== newValueType) {
-        throw new TypeError(`Type "${newValueType}" is not assignable to type "${objectTypeDescriptor.type}"`)
+    if (cleanType !== newValueType) {
+        const message = array ? `Value "${newValue}" (${newValueType}) cannot be placed in array of ${cleanType}` :
+            `Type "${newValueType}" is not assignable to type "${objectTypeDescriptor.type}"`;
+        throw new TypeError(message)
     }
 }
 
@@ -111,11 +114,7 @@ function createArrayPrivateField(object, type, initialValue, key) {
             throw new TypeError(`Type "${valueType}" is not assignable to type "${arrayType}"`)
         }
         value.forEach(v => {
-            const vType = getType(v);
-            const isCorrectType = vType === cleanArrayType;
-            if (!isCorrectType) {
-                throw new TypeError(`Value "${v}" (${vType}) cannot be placed in array of ${cleanArrayType}`)
-            }
+            checkTypes({ type }, v, allowUndefined, true);
         });
     };
 
@@ -127,12 +126,8 @@ function createArrayPrivateField(object, type, initialValue, key) {
         $$setChecker: setChecker,
         value: isLegalUndefined ? undefined : new Proxy(initialValue, {
             type,
-            cleanType,
             $$checker(value) {
-                const valueType = getType(value);
-                if (valueType !== this.cleanType) {
-                    throw new TypeError(`Value "${value}" (${valueType}) cannot be placed in array of ${this.cleanType}`)
-                }
+                checkTypes({ type: this.type }, value, allowUndefined, true);
             },
             set(target, p, value) {
                 this.$$checker(value);
