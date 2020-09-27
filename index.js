@@ -1,5 +1,5 @@
-import {createInterface} from "./lib/interface.mjs";
-import {createWithInterface} from "./lib/createWithInterface.mjs";
+import {createInterface} from "./lib/interface.js";
+import {createWithInterface} from "./lib/createWithInterface.js";
 
 const interfaceDescriptor = {
     name: 'string',

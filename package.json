@@ -1,0 +1,27 @@
+{
+  "name": "typed-object",
+  "version": "1.0.0",
+  "description": "Runtime type-checking for JavaScript objects without TypeScript or other dependencies.",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lyohaplotinka/typed-object.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lyohaplotinka/typed-object/issues"
+  },
+  "homepage": "https://github.com/lyohaplotinka/typed-object#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+    "jest": "^26.4.2"
+  }
+}
