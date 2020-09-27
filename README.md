@@ -1,4 +1,4 @@
-# typed-object
+# js-typed-object
 
 Runtime type-checking for JavaScript objects
 without TypeScript or other dependencies, but with TypeScript-like
@@ -6,9 +6,9 @@ syntax.
 
 #### Example code: 
 ```javascript
-import { createInterface, createWithInterface } from 'typed-object'
+import { createInterface, createWithInterface } from 'js-typed-object'
 // or, in Node
-const { createInterface, createWithInterface } = require('typed-object')
+const { createInterface, createWithInterface } = require('js-typed-object')
 
 // Step 1. Creating an interface 
 const personInterfaceDescriptor = {

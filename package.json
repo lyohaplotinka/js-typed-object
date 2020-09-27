@@ -1,15 +1,15 @@
 {
-  "name": "typed-object",
+  "name": "js-typed-object",
   "version": "1.0.0",
   "description": "Runtime type-checking for JavaScript objects without TypeScript or other dependencies.",
-  "main": "dist/typed-object.cjs.js",
-  "browser": "dist/typed-object.umd.js",
-  "module": "dist/typed-object.esm.js",
+  "main": "dist/js-typed-object.cjs.js",
+  "browser": "dist/js-typed-object.umd.js",
+  "module": "dist/js-typed-object.esm.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest __tests__",
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "lint": "eslint lib/**/*.js --fix",
@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lyohaplotinka/typed-object.git"
+    "url": "git+https://github.com/lyohaplotinka/js-typed-object.git"
   },
   "author": "Lyoha Plotinka",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lyohaplotinka/typed-object/issues"
+    "url": "https://github.com/lyohaplotinka/js-typed-object/issues"
   },
-  "homepage": "https://github.com/lyohaplotinka/typed-object#readme",
+  "homepage": "https://github.com/lyohaplotinka/js-typed-object#readme",
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.10.4",
     "@babel/preset-env": "^7.11.5",
@@ -43,7 +43,10 @@
     "rollup-plugin-terser": "^7.0.2"
   },
   "lint-staged": {
-    "./lib/**/*.js": ["npm run lint:format", "git add"]
+    "./lib/**/*.js": [
+      "npm run lint:format",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {

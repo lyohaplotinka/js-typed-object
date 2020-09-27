@@ -8,7 +8,7 @@ export default [
   {
     input: './lib/main.js',
     output: {
-      name: 'typedObject',
+      name: 'jsTypedObject',
       file: pkg.browser,
       format: 'umd'
     },
@@ -18,8 +18,8 @@ export default [
   {
     input: './lib/main.js',
     output: [
-      { file: pkg.main, format: 'cjs', name: 'typedObject' },
-      { file: pkg.module, format: 'es', name: 'typedObject' }
+      { file: pkg.main, format: 'cjs', name: 'jsTypedObject' },
+      { file: pkg.module, format: 'es', name: 'jsTypedObject' }
     ]
   }
 ];
