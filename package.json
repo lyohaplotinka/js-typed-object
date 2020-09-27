@@ -11,7 +11,10 @@
   "scripts": {
     "test": "jest --coverage",
     "build": "rollup -c",
-    "dev": "rollup -c -w"
+    "dev": "rollup -c -w",
+    "lint": "eslint lib/**/*.js --fix",
+    "format": "prettier lib/**/*.js --write",
+    "lint:format": "npm run lint && npm run format"
   },
   "repository": {
     "type": "git",
@@ -29,8 +32,22 @@
     "@rollup/plugin-babel": "^5.2.1",
     "@rollup/plugin-commonjs": "^15.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
     "jest": "^26.4.2",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
     "rollup": "^2.28.2",
     "rollup-plugin-terser": "^7.0.2"
+  },
+  "lint-staged": {
+    "./lib/**/*.js": ["npm run lint:format", "git add"]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
