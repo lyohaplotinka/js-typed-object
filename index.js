@@ -1,5 +1,4 @@
-import {createInterface} from "./lib/interface.js";
-import {createWithInterface} from "./lib/createWithInterface.js";
+const { createInterface, createWithInterface } = require('./dist/typed-object.cjs')
 
 const interfaceDescriptor = {
     name: 'string',
