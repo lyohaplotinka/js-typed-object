@@ -10,7 +10,7 @@ export default [
     output: {
       name: 'jsTypedObject',
       file: pkg.browser,
-      format: 'umd'
+      format: 'iife'
     },
     plugins: [resolve(), commonjs(), babel(), terser()]
   },

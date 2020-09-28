@@ -170,6 +170,16 @@ function createHelpers(object, objectInterface) {
   });
 }
 
+function validateValueByInterface(objectInterface, value) {
+  const interfaceKeys = Object.keys(objectInterface.fields);
+  const valueKeys = Object.keys(value);
+  valueKeys.forEach((key) => {
+    if (!interfaceKeys.includes(key)) {
+      throw new Error(`[InterfaceError] Key "${key}" does not exist in interface "${objectInterface.name}"`);
+    }
+  });
+}
+
 function createWithInterface(objectInterface, initialValue) {
   const newObject = {};
   if (!objectInterface.fields) {
@@ -177,6 +187,7 @@ function createWithInterface(objectInterface, initialValue) {
       'ObjectInterface missing "fields" property. You should define your interface via createInterface function.'
     );
   }
+  validateValueByInterface(objectInterface, initialValue);
   for (const key in objectInterface.fields) {
     if (!objectInterface.fields[key]) continue;
     const type = objectInterface.fields[key];

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Runtime type-checking for JavaScript objects without TypeScript or other dependencies.",
   "main": "dist/js-typed-object.cjs.js",
-  "browser": "dist/js-typed-object.umd.js",
+  "browser": "dist/js-typed-object.iife.js",
   "module": "dist/js-typed-object.esm.js",
   "directories": {
     "lib": "lib"
